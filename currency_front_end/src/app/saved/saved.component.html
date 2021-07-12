@@ -1,0 +1,41 @@
+<h1 class="h1">Saved Data</h1>
+<p>
+The Saved data is as shown below.
+
+</p>
+<div class="loading" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="currencies">
+  <div class="currencies">
+    <h3 class="card-header">Saved Conversion Rates</h3>  
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>ID</th>
+          <th>Amount</th>
+          <th>Source Currency</th>
+          <th>Calculated Amount</th>
+          <th>Target Currency</th>
+          <th>Source</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of loadedData; index as i; even as isEven; odd as isOdd">
+        <tr>
+          <td>{{item.dateOfEntry}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.amount | number:'1.02'}}</td>
+          <td>{{item.sourceCurrency}}</td>
+          <td>{{item.calculatedAmount | number:'1.02'}}</td>
+          <td>{{item.currency}}</td>
+          <td>{{item.source}}</td>
+          <td>{{item.comment}}</td>
+        </tr>
+              
+      </tbody> 
+    </table>
+  </div>
+ 
+</div>
